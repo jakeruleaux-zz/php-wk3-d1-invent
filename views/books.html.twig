@@ -1,0 +1,36 @@
+<html>
+<head>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'>
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <title>Book List</title>
+</head>
+<body>
+  <div class='container'>
+        <h1>Book List</h1>
+
+        {% if books is not empty %}
+            <p>Here are all your books:</p>
+            <ul>
+                {% for book in books %}
+                    <li>{{ book.getBook }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <form action='/books' method='post'>
+            <label for='book'>Book Title</label>
+            <input id='book' name='book' type='text'>
+
+            <button type='submit' class='btn-success'>Add book</button>
+        </form>
+        <form action='/delete_books' method='post'>
+            <button type='submit' class='btn-info'>Clear</button>
+        </form>
+        
+
+        <p><a href='/'>Home</a></p>
+    </div>
+</body>
+</html>
